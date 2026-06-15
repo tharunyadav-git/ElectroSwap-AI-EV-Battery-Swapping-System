@@ -102,40 +102,6 @@ pip install -r requirements.txt
 python app.py
 ```
 
----
-
-## 📸 Screenshots
-
-### Home Page
-
-(Add Screenshot Here)
-
----
-
-### Prediction Page
-
-(Add Screenshot Here)
-
----
-
-### Result Page
-
-(Add Screenshot Here)
-
----
-
-## 🧪 Testing
-
-The application was tested for:
-
-- Functional Testing
-- Input Validation
-- Prediction Accuracy
-- User Interface Testing
-- Error Handling
-
----
-
 ## 📈 Future Enhancements
 
 - Mobile Application Integration
@@ -152,7 +118,6 @@ The application was tested for:
 
 B.Tech – Information Technology
 
-Interested in Software Testing, QA Automation, AI & Machine Learning.
 
 ---
 
