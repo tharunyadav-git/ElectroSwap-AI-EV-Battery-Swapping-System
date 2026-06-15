@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="animate__animated animate__fadeIn">
+    
+    <div class="mb-8 border-b border-white/10 pb-4">
+        <h1 class="text-4xl font-bold text-white mb-1 font-tech tracking-wide">
+            <span class="text-red-500">///</span> SYSTEM ADMINISTRATION
+        </h1>
+        <p class="text-gray-400 text-sm font-mono">USER MANAGEMENT & SECURITY PROTOCOLS</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Create User Panel -->
+        <div class="glass-panel p-6 h-fit border-t-2 border-t-blue-500">
+            <h2 class="text-lg font-bold mb-6 text-white font-tech tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-user-shield text-blue-500"></i> PROVISION USER
+            </h2>
+            <form method="POST" class="space-y-5">
+                <input type="hidden" name="action" value="create">
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Username ID</label>
+                    <input type="text" name="username" required class="input-tech w-full px-3 py-2 text-sm rounded-none border-l-2 border-l-blue-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Access Key</label>
+                    <input type="password" name="password" required class="input-tech w-full px-3 py-2 text-sm rounded-none border-l-2 border-l-blue-500">
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-white/5 border border-white/10">
+                    <input type="checkbox" name="is_admin" id="is_admin" class="accent-blue-500 w-4 h-4">
+                    <label for="is_admin" class="text-xs text-gray-300 font-mono cursor-pointer uppercase">Grant Root Privileges</label>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 uppercase text-xs tracking-widest transition shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                    Create User Record
+                </button>
+            </form>
+        </div>
+        
+        <!-- User List Table -->
+        <div class="lg:col-span-2 glass-panel p-0 overflow-hidden border-t-2 border-t-gray-500">
+            <div class="p-6 border-b border-white/5 bg-white/5">
+                <h2 class="text-lg font-bold text-white font-tech">ACTIVE PERSONNEL</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-black/40 text-gray-500 uppercase text-[10px] font-mono tracking-widest">
+                            <th class="p-4">Sys_ID</th>
+                            <th class="p-4">Username</th>
+                            <th class="p-4">Access Level</th>
+                            <th class="p-4 text-right">Command</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        {% for u in users %}
+                        <tr class="hover:bg-white/5 transition group">
+                            <td class="p-4 text-gray-500 font-mono text-xs">#UID-{{ u.id }}</td>
+                            <td class="p-4 font-bold text-white">{{ u.username }}</td>
+                            <td class="p-4">
+                                {% if u.is_admin %}
+                                <span class="bg-red-500/10 text-red-400 px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-red-500/30">
+                                    ROOT_ADMIN
+                                </span>
+                                {% else %}
+                                <span class="bg-blue-500/10 text-blue-400 px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-blue-500/30">
+                                    OPERATOR
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="p-4 text-right">
+                                {% if u.id != current_user.id %}
+                                <form method="POST" class="inline">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="user_id" value="{{ u.id }}">
+                                    <button type="submit" class="text-gray-600 hover:text-red-500 transition opacity-50 group-hover:opacity-100" onclick="return confirm('Purge this user from database?')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </form>
+                                {% else %}
+                                <span class="text-gray-700 text-[10px] font-mono uppercase">Current Session</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[85vh] flex flex-col items-center justify-center relative">
+    
+    <!-- Hero Section -->
+    <div class="text-center max-w-6xl mx-auto mb-20 animate__animated animate__fadeInUp relative z-10">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold tracking-[0.2em] mb-8 uppercase animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> AI Model v1.0 Online
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+            POWER <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">EVOLVED</span>
+        </h1>
+        
+        <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+            The world's first <span class="text-white font-medium">XGBoost-driven</span> battery valuation engine. 
+            We calculate fair pricing down to the electron, ensuring sustainability meets equity.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="{{ url_for('register') }}" class="btn-glow px-10 py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg uppercase tracking-widest border border-cyan-400/50 shadow-[0_0_30px_rgba(6,182,212,0.4)] clip-path-slant transition transform hover:-translate-y-1">
+                Launch Dashboard
+            </a>
+            <a href="{{ url_for('login') }}" class="px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold text-lg uppercase tracking-widest border border-white/10 backdrop-blur-sm transition transform hover:-translate-y-1">
+                Access Terminal
+            </a>
+        </div>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="grid md:grid-cols-3 gap-6 w-full max-w-7xl px-4 animate__animated animate__fadeInUp animate__delay-1s">
+        <!-- Card 1 -->
+        <div class="glass-panel p-8 rounded-none border-l-4 border-l-cyan-500 group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition transform group-hover:scale-125">
+                <i class="fa-solid fa-microchip text-9xl text-cyan-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 font-tech">DATA INGESTION</h3>
+            <p class="text-gray-400 leading-relaxed z-10 relative">
+                Real-time telemetry analysis. We ingest voltage curves, discharge rates, and thermal signatures instantly.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-panel p-8 rounded-none border-l-4 border-l-purple-500 group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition transform group-hover:scale-125">
+                <i class="fa-solid fa-brain text-9xl text-purple-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 font-tech">NEURAL PREDICTION</h3>
+            <p class="text-gray-400 leading-relaxed z-10 relative">
+                XGBoost algorithms trained on 10,000+ cycles predict Remaining Useful Life (RUL) with > 98% accuracy.
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-panel p-8 rounded-none border-l-4 border-l-pink-500 group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition transform group-hover:scale-125">
+                <i class="fa-solid fa-scale-unbalanced text-9xl text-pink-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 font-tech">DYNAMIC VALUATION</h3>
+            <p class="text-gray-400 leading-relaxed z-10 relative">
+                Algorithmic pricing adjustments. Pay for the energy potential you receive, not a flat fee.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="animate__animated animate__fadeIn w-full px-4 py-8">
+    
+    <div class="mb-8 border-b border-white/10 pb-4">
+        <h1 class="text-4xl font-bold text-white mb-1 font-tech tracking-wide">
+            <span class="text-purple-400">///</span> DATA ANALYTICS
+        </h1>
+        <p class="text-gray-400 text-sm font-mono">VISUALIZATIONS GENERATED FROM TRAINING DATA</p>
+    </div>
+    
+    <!-- GRID LAYOUT -->
+    <div class="grid lg:grid-cols-2 gap-8 pb-12">
+        
+        <!-- Chart 6: Pricing Strategy (NEW & IMPORTANT) -->
+        <div class="glass-panel p-2 lg:col-span-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-emerald-500/50 transition duration-500">
+             <div class="absolute top-0 left-0 px-3 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-emerald-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Proposed Strategy: Fair Pricing vs Fixed Cost
+            </div>
+            <img src="{{ url_for('static', filename='chart6_pricing_strategy.png') }}" alt="Pricing Strategy" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+        <!-- Chart 2: Heatmap -->
+        <div class="glass-panel p-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-purple-500/50 transition duration-500">
+             <div class="absolute top-0 left-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-purple-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Figure 3: Feature Correlation Heatmap
+            </div>
+            <img src="{{ url_for('static', filename='chart2_heatmap.png') }}" alt="Correlation Heatmap" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+        <!-- Chart 3: Predicted vs Actual -->
+        <div class="glass-panel p-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-cyan-500/50 transition duration-500">
+            <div class="absolute top-0 left-0 px-3 py-1 bg-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-cyan-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Model Performance: Actual vs Predicted
+            </div>
+            <img src="{{ url_for('static', filename='chart3_pred_vs_actual.png') }}" alt="Prediction Accuracy" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+        <!-- Chart 4: Degradation -->
+        <div class="glass-panel p-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-pink-500/50 transition duration-500">
+            <div class="absolute top-0 left-0 px-3 py-1 bg-pink-500/20 text-pink-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-pink-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Battery Degradation (Cycle vs RUL)
+            </div>
+            <img src="{{ url_for('static', filename='chart4_degradation.png') }}" alt="Degradation Curve" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+        <!-- Chart 5: Feature Impact -->
+        <div class="glass-panel p-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-green-500/50 transition duration-500">
+            <div class="absolute top-0 left-0 px-3 py-1 bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-green-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Feature Impact: Discharge Time vs RUL
+            </div>
+            <img src="{{ url_for('static', filename='chart5_feature_impact.png') }}" alt="Feature Impact" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+        <!-- Chart 1: Distribution -->
+        <div class="glass-panel p-2 relative border border-white/10 rounded-xl overflow-hidden group hover:border-blue-500/50 transition duration-500">
+             <div class="absolute top-0 left-0 px-3 py-1 bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest border-b border-r border-blue-500/30 z-10 rounded-tl-xl backdrop-blur-md">
+                Dataset RUL Distribution
+            </div>
+            <img src="{{ url_for('static', filename='chart1_dist.png') }}" alt="RUL Distribution" 
+                 class="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition duration-500 transform group-hover:scale-[1.01]">
+        </div>
+
+    </div>
+</div>
+{% endblock %}
